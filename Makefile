@@ -5,6 +5,7 @@ ORG := github.com/operator-framework
 PKG := $(ORG)/rukpak
 export IMAGE_REPO ?= quay.io/operator-framework/rukpak
 export IMAGE_TAG ?= latest
+KUBECTL_VERSION = $(shell go list -m k8s.io/kubectl | cut -d" " -f2 | sed 's/^v0/v1/')
 IMAGE?=$(IMAGE_REPO):$(IMAGE_TAG)
 KIND_CLUSTER_NAME ?= rukpak
 BIN_DIR := bin
