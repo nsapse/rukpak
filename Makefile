@@ -157,7 +157,7 @@ rukpakctl:
 build-container: export GOOS=linux
 build-container: BIN_DIR:=$(BIN_DIR)/$(GOOS)
 build-container: build ## Builds provisioner container image locally
-	$(CONTAINER_RUNTIME) build -f Dockerfile -t $(IMAGE) $(BIN_DIR)
+	$(CONTAINER_RUNTIME) build -t $(IMAGE) .
 
 kind-load-bundles: kind ## Load the e2e testdata container images into a kind cluster
 	$(CONTAINER_RUNTIME) build $(TESTDATA_DIR)/bundles/plain-v0/valid -t testdata/bundles/plain-v0:valid
